@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <a href="students/showAll.html" th:href="@{/students/display}">DISPLAY STUDENTS</a>
+                <h1>STUDENTS</h1>
+                <a href="/add.html" class="btn btn-secondary" style="margin:10px 0px">ADD NEW STUDENT</a>
+                <table class="table table-striped w-auto">
+                    <tr class="thead-dark">
+                        <th scope="col">Name</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Hair Colour</th>
+                        <th scope="col">GPA</th>
+                        <th scope="col"></th>
+                    </tr>
+                    <tr scope="row" th:each="student:${st}">
+                        <td th:text="${student.name}"></td>
+                        <td th:text="${student.weight} + ' lbs'"></td>
+                        <td th:text="${student.height} + ' cm'"></td>
+                        <td th:text="${student.hair}"></td>
+                        <td th:text="${student.gpa}"></td>
+                        <td><a th:href="@{/students/view/{uid}(uid=${student.uid})}">edit</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

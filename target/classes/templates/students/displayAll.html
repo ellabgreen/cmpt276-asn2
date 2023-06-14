@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <a href="students/showAll.html" th:href="@{/students/view}">STUDENTS LIST</a>
+    <h1>Display Students</h1>
+    <div class="col-md-2 d-flex justify-content-center" style="margin:10px" th:each="student:${st}">
+        <div class="text-center" th:style="'height:'+${student.height}+'px; border: solid thin black; width:'+${student.weight}+'px;'">
+            <a th:href="@{/students/view/{uid}(uid=${student.uid})}" th:style="'color:'+${student.hair}" th:text="${student.name}"></a>
+            <p th:text="${student.gpa}"></p>
+        </div>
+    </div>
+
+</body>
+</html>
